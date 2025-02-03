@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+    @Environment(\.dismiss) var dismiss
 
     let coingeckoURL = URL(string: "https://www.coingecko.com")!
 
@@ -36,7 +36,9 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    XMarkButton()
+                    XMarkButton {
+                        dismiss()
+                    }
                 }
             }
         }
